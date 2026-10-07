@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Figure It Out! Poetry & Figurative Language Quest</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;700;800&display=swap">
+<style>
+:root{--b1:#ffe3f1;--b2:#dfeaff;--card:#fff;--ink:#241a3a;--mut:#6b6385;--ok:#12a05c;--bad:#e0475b;--hl:#fff1a8;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--b1:#2a1450;--b2:#0f2a55;--card:#231a40;--ink:#f4efff;--mut:#b8afd6;--hl:#5d4d10}}
+:root[data-theme="dark"]{--b1:#2a1450;--b2:#0f2a55;--card:#231a40;--ink:#f4efff;--mut:#b8afd6;--hl:#5d4d10}
+*{box-sizing:border-box}html,body{margin:0;min-height:100%}
+body{font-family:'Baloo 2',system-ui,'Segoe UI',sans-serif;color:var(--ink);background:linear-gradient(135deg,var(--b1),var(--b2)) fixed;padding:12px}
+#w{max-width:860px;margin:0 auto}
+.hd{display:flex;gap:10px;justify-content:space-between;align-items:center;background:var(--card);border-radius:999px;padding:8px 18px;box-shadow:0 4px 14px #0002;font-weight:700;font-size:clamp(14px,3.4vw,20px)}
+h1{font-size:clamp(28px,7vw,52px);margin:.4em 0 0;text-align:center;background:linear-gradient(90deg,#ff5f9e,#ffb037,#2f80ed,#9b5de5);-webkit-background-clip:text;background-clip:text;color:transparent;font-weight:800}
+h2{font-size:clamp(20px,4.6vw,32px);margin:.2em 0}
+p{font-size:clamp(16px,3.2vw,22px);line-height:1.4;margin:.4em 0}
+.sub{text-align:center;color:var(--mut)}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:12px;margin-top:14px}
+.wc{border:0;border-radius:20px;padding:16px 10px;color:#fff;background:linear-gradient(135deg,var(--a),var(--b));display:flex;flex-direction:column;align-items:center;gap:2px;cursor:pointer;font-family:inherit;font-size:clamp(16px,3.4vw,20px);box-shadow:0 6px 0 #0003;transition:transform .15s}
+.wc:hover:not(:disabled){transform:translateY(-4px) rotate(-1deg)}.wc:disabled{filter:grayscale(.8);opacity:.6;cursor:default}
+.wc .em{font-size:44px}.wc small{opacity:.95}.boss{--a:#ff3d3d;--b:#7a1fa2;grid-column:1/-1}
+.card{background:var(--card);border-radius:22px;padding:18px 20px;margin-top:14px;box-shadow:0 6px 18px #0002;border-top:8px solid var(--a,#9b5de5)}
+.big{font-size:60px;text-align:center}
+.std{display:inline-block;background:#2f80ed;color:#fff;border-radius:999px;padding:2px 12px;font-size:14px}
+.ex{background:var(--hl);border-radius:12px;padding:10px 14px;font-size:clamp(16px,3.4vw,22px);margin:8px 0}
+mark{background:#ffb037;color:#241a3a;border-radius:6px;padding:0 4px}
+.go,.back{font-family:inherit;font-weight:700;font-size:clamp(16px,3.4vw,20px);border:0;border-radius:999px;padding:10px 22px;cursor:pointer;margin:8px 6px 0 0}
+.go{background:linear-gradient(90deg,#ff5f9e,#ff9a3d);color:#fff;box-shadow:0 4px 0 #0003}.back{background:var(--mut);color:#fff}
+.op{display:block;width:100%;text-align:left;margin:8px 0;padding:12px 16px;border:0;border-radius:14px;color:#fff;font-family:inherit;font-weight:700;font-size:clamp(15px,3.2vw,20px);cursor:pointer;box-shadow:0 4px 0 #0003}
+.op:nth-child(4n+1){background:#e0475b}.op:nth-child(4n+2){background:#2f80ed}.op:nth-child(4n+3){background:#1e9e6a}.op:nth-child(4n+4){background:#8e4fd0}
+.op.bad{animation:sh .35s;opacity:.35}.op.right{outline:4px solid #ffd23f;transform:scale(1.02)}.op:disabled{cursor:default}
+@keyframes sh{25%{transform:translateX(-8px)}75%{transform:translateX(8px)}}
+.fbk{border-radius:12px;padding:8px 12px;margin-top:8px;font-size:clamp(15px,3vw,20px)}.g{background:#12a05c33}.r{background:#e0475b33}
+.bar{height:12px;border-radius:9px;background:#0002;overflow:hidden;margin-top:14px}.bar i{display:block;height:100%;background:linear-gradient(90deg,#ff5f9e,#ffb037);transition:width .4s}
+textarea{width:100%;border-radius:12px;border:3px solid var(--mut);padding:10px;font:inherit;font-size:clamp(15px,3vw,20px);background:var(--card);color:var(--ink)}
+.cf{position:fixed;top:-30px;font-size:26px;animation:fall 2.2s linear forwards;pointer-events:none;z-index:9}@keyframes fall{to{transform:translateY(110vh) rotate(360deg)}}
+</style></head><body><div id="w"><div id="hd" class="hd"></div><div id="pg"></div></div>
+<script>
+const $=id=>document.getElementById(id),words=t=>t.trim().split(/\s+/).filter(Boolean),n4=t=>words(t).length>=4;
+const W=[
+{n:'Simile Sprint',e:'🏃',c:['#ff5f9e','#ff9a3d'],s:'ELA.6.R.1.4 • Figurative Language',d:'A <b>simile</b> compares two different things using the words <b>like</b> or <b>as</b>.',x:'Her laugh was <mark>like</mark> a bell ringing in the hall.',k:'Clue words: like, as, than',
+ q:[['“The runner was as fast as lightning.” What figurative language is this?',['Simile','Metaphor','Hyperbole'],0,'It compares the runner to lightning using “as.”'],
+ ['Which sentence is a simile?',['Her smile was a sunrise.','Her smile was bright like a sunrise.','Her smile lit up the room.'],1,'Only this one uses “like” to compare.'],
+ ['“The snow fell like a soft blanket over the town.” What does this simile make you picture?',['Heavy, painful snow','Gentle snow covering everything in quiet warmth','Fast, sharp snow'],1,'A blanket is soft and cozy, so the snow feels gentle and calm.'],
+ ['Which ending makes the best simile? “The classroom was as quiet as ___.”',['a library at midnight','very quiet','the hallway'],0,'It compares the classroom to something else that is very quiet.']],
+ p:'Write a simile about your favorite food. Use <b>like</b> or <b>as</b>!',a:'The pizza was as warm as a hug.',h:'Hint: a simile needs the word “like” or “as” and at least 4 words.',v:t=>n4(t)&&/\b(like|as)\b/i.test(t)},
+{n:'Metaphor Mania',e:'🎭',c:['#7b2ff7','#f107a3'],s:'ELA.6.R.1.4 • Figurative Language',d:'A <b>metaphor</b> says one thing <i>is</i> another thing, <b>without</b> using like or as.',x:'The test <mark>was a mountain</mark> I had to climb.',k:'Clue: “is/was/are” + a comparison, no like or as',
+ q:[['“Time is a thief that steals our days.” What is this?',['Metaphor','Simile','Alliteration'],0,'It says time IS a thief, with no “like” or “as.”'],
+ ['Which sentence is a metaphor?',['The test was like a mountain.','The test was very hard.','The test was a mountain.'],2,'It says the test IS a mountain directly.'],
+ ['“The classroom was a zoo.” What does it mean?',['Real animals were there','It was wild, loud, and out of control','It was calm and quiet'],1,'A zoo is noisy and busy, so the classroom felt chaotic.'],
+ ['“Her words were daggers.” What is the effect?',['Her words were sharp and hurtful','She carried real knives','Her words were quiet'],0,'Daggers cut, so the metaphor shows that her words hurt.']],
+ p:'Write a metaphor about school. Say school (or a class) <i>is</i> something else!',a:'Math class is a puzzle I have not solved yet.',h:'Hint: say one thing IS another, with at least 4 words, and no “like” or “as.”',v:t=>n4(t)&&!/\b(like|as)\b/i.test(t)},
+{n:'Personification Party',e:'🌳',c:['#12a05c','#2fd0c4'],s:'ELA.6.R.1.4 • Figurative Language',d:'<b>Personification</b> gives human actions or feelings to animals, objects, or nature.',x:'The wind <mark>whispered</mark> secrets through the trees.',k:'Clue: a non-human thing walks, talks, sleeps, or feels',
+ q:[['“The wind whispered through the trees.” What is this?',['Personification','Simile','Hyperbole'],0,'Wind cannot whisper. That is a human action.'],
+ ['Which is personification?',['The stars are like diamonds.','The stars winked at us from the sky.','The stars are billions of miles away.'],1,'Stars cannot wink, so they are acting like people.'],
+ ['“The old house groaned as the storm hit.” What is the effect?',['It tells how old the house is','It makes the house seem alive and creates a creepy mood','It shows the house is new'],1,'Groaning makes the house seem alive and a little spooky.'],
+ ['“The sun woke up and stretched over the hills.” Which words give the sun human actions?',['over the hills','woke up and stretched','The sun'],1,'People wake up and stretch, not suns!']],
+ p:'Give a human action to a storm, a phone, or a cat. Write one sentence!',a:'The storm stomped through town, slamming every door.',h:'Hint: write at least 4 words where a non-human thing does a human action.',v:n4},
+{n:'Hyperbole Blast',e:'🚀',c:['#ff3d3d','#ffb037'],s:'ELA.6.R.1.4 • Figurative Language',d:'<b>Hyperbole</b> is extreme exaggeration used to show strong feeling or add humor.',x:'My backpack weighs <mark>a million pounds</mark>!',k:'Clue: too big to be true (millions, forever, ages)',
+ q:[['“I have told you a million times to clean your room!” What is this?',['Hyperbole','Simile','Metaphor'],0,'Nobody says it a million times. It exaggerates to show frustration.'],
+ ['Which is hyperbole?',['The bag weighed a ton.','The bag was heavy like a rock.','The bag weighed five pounds.'],0,'A bag cannot weigh a ton, so it is an exaggeration.'],
+ ['Why do authors use hyperbole?',['To give exact facts','To show strong feeling or humor','To confuse readers'],1,'Exaggeration makes feelings stand out.'],
+ ['“I am so hungry I could eat a horse.” Is it literal?',['Yes, he will eat a horse','No, it exaggerates how hungry he is','No, it compares using “like”'],1,'It stretches the truth to show he is very hungry.']],
+ p:'Exaggerate how long you waited for something. Write one hyperbole!',a:'I waited a century for my lunch.',h:'Hint: write at least 4 words and make it wildly exaggerated.',v:n4},
+{n:'Sound & Sense',e:'🎧',c:['#2f80ed','#2fd0c4'],s:'ELA.6.R.1.3 • Poetic Elements',d:'<b>Alliteration</b> repeats starting sounds. <b>Onomatopoeia</b> is a word that sounds like its meaning. <b>Imagery</b> uses the five senses.',x:'<mark>Bold bees buzzed</mark> by the blue balloons.',k:'Clue: repeated sounds, sound words, sensory details',
+ q:[['“Bold bees buzzed by the blue balloons.” What device repeats the B sound?',['Alliteration','Metaphor','Personification'],0,'The repeated beginning sound is alliteration.'],
+ ['“The bacon sizzled and popped in the pan.” What device is “sizzled”?',['Hyperbole','Onomatopoeia','Simile'],1,'The word sounds like the noise it names.'],
+ ['“The sour lemon puckered my lips and its sharp scent stung my nose.” Which senses?',['Sight and hearing','Taste and smell','Touch only'],1,'Sour = taste, scent = smell.'],
+ ['Which line has the strongest imagery?',['It was a nice day.','Golden light spilled across the dewy grass, and the air smelled like pine.','The day was good.'],1,'It gives vivid sights and smells.']],
+ p:'Write a line with alliteration: at least 3 words that start with the same letter!',a:'Silly snakes slithered slowly south.',h:'Hint: use at least 3 words that start with the same letter.',v:t=>{const m={};words(t).forEach(w=>{const c=w[0].toLowerCase();m[c]=(m[c]||0)+1});return Object.values(m).some(v=>v>=3)}},
+{n:'Poem Parts',e:'📜',c:['#8e4fd0','#2f80ed'],s:'ELA.6.R.1.3 • Poetic Elements',d:'A <b>stanza</b> is a group of lines, like a paragraph. The <b>speaker</b> is the voice telling the poem. <b>Free verse</b> has no regular rhyme or rhythm. Rhyme scheme uses letters (ABAB).',x:'Stars above <mark>(A)</mark><br>shining bright <mark>(B)</mark><br>whisper love <mark>(A)</mark><br>in the night <mark>(B)</mark>',k:'Clue: last words that rhyme get the same letter',
+ q:[['A group of lines in a poem, like a paragraph, is called a…',['Stanza','Speaker','Simile'],0,'A stanza is a group of lines.'],
+ ['What is the rhyme scheme? “Stars above / shining bright / whisper love / in the night”',['AABB','ABAB','ABCD'],1,'above/love rhyme (A), bright/night rhyme (B), so it is ABAB.'],
+ ['The voice that tells a poem is the…',['Speaker','Stanza','Title'],0,'The speaker is the voice, not always the poet.'],
+ ['A poem has no rhyme scheme and no regular rhythm. It is…',['Free verse','A limerick','ABAB'],0,'That is called free verse.']],
+ p:'Write a 4-line stanza about your weekend. Put each line on its own row!',a:'Saturday sun / games with friends / pizza and fun / until it ends',h:'Hint: write 4 lines. Press Enter after each line.',v:t=>t.split('\n').filter(l=>l.trim()).length>=4}];
+const B=[['“The moon was a silver coin in the night sky.”',['Simile','Metaphor','Personification','Hyperbole'],1,'The moon IS a coin, with no “like” or “as.”'],
+['“My backpack weighs about a million pounds.”',['Simile','Metaphor','Personification','Hyperbole'],3,'It is an extreme exaggeration.'],
+['“The leaves danced across the parking lot.”',['Simile','Metaphor','Personification','Hyperbole'],2,'Leaves cannot dance. That is a human action.'],
+['“Her voice was as smooth as butter.”',['Simile','Metaphor','Personification','Hyperbole'],0,'It compares using “as…as.”'],
+['“The ocean roared its anger at the shore.”',['Simile','Metaphor','Personification','Hyperbole'],2,'Oceans do not feel anger. It is personification.'],
+['“Life is a roller coaster.”',['Simile','Metaphor','Personification','Hyperbole'],1,'It says life IS a roller coaster.']];
+let xp=0,streak=0,stars=[],Q,qi,ok,cur;
+const ranks=['Rookie Rhymer','Word Wizard','Poetry Pro','Metaphor Master','Legend 🏆'];
+function upd(){const k=[0,120,300,500,700].filter(t=>xp>=t).length-1;$('hd').innerHTML=`<span>${ranks[k]}</span><span>⭐ ${xp} XP</span><span>🔥 ${streak}</span>`}
+function put(h){$('pg').innerHTML=h;upd();scrollTo(0,0)}
+function boom(){const e=['🎉','⭐','✨','🎈','💥'];for(let k=0;k<22;k++){const s=document.createElement('span');s.className='cf';s.textContent=e[k%5];s.style.left=Math.random()*100+'vw';s.style.animationDelay=Math.random()*.5+'s';document.body.appendChild(s);setTimeout(()=>s.remove(),2800)}}
+function map(){const dn=stars.slice(0,6).filter(Boolean).length;
+ put(`<h1>🎮 Figure It Out!</h1><p class="sub">Poetry &amp; Figurative Language Quest • Florida B.E.S.T. ELA<br>Beat each world to unlock the next!</p><div class="grid">`+W.map((w,i)=>{const lk=i>0&&!stars[i-1];return `<button class="wc" style="--a:${w.c[0]};--b:${w.c[1]}" ${lk?'disabled':''} onclick="teach(${i})"><span class="em">${lk?'🔒':w.e}</span><b>${w.n}</b><small>${stars[i]?'⭐'.repeat(stars[i]):lk?'Locked':'Play!'}</small></button>`}).join('')+`<button class="wc boss" ${dn<6?'disabled':''} onclick="boss()"><span class="em">${dn<6?'🔒':'👾'}</span><b>BOSS BATTLE: Figurative Language Showdown</b><small>${stars[6]?'⭐'.repeat(stars[6]):dn<6?'Beat all 6 worlds first':'Play!'}</small></button></div>`)}
+function teach(i){const w=W[i];put(`<div class="card" style="--a:${w.c[0]}"><div class="big">${w.e}</div><h2>${w.n}</h2><span class="std">${w.s}</span><p>${w.d}</p><div class="ex">${w.x}</div><p>🔍 ${w.k}</p><button class="go" onclick="quiz(${i})">Start! →</button><button class="back" onclick="map()">← Map</button></div>`)}
+function quiz(i){cur=i;Q=W[i].q;qi=0;ok=0;ask()}
+function boss(){cur=6;Q=B;qi=0;ok=0;ask()}
+function ask(){const q=Q[qi],b=cur==6,last=qi==Q.length-1;let miss=0;
+ put(`<div class="bar"><i style="width:${qi/Q.length*100}%"></i></div><p class="sub">${b?'👾 Boss Battle':W[cur].e+' '+W[cur].n} • Question ${qi+1} of ${Q.length}</p><div class="card" style="--a:${b?'#ff3d3d':W[cur].c[0]}"><h2>${q[0]}</h2>${q[1].map((o,k)=>`<button class="op" data-k="${k}">${o}</button>`).join('')}<div id="fb"></div></div>`);
+ document.querySelectorAll('.op').forEach(btn=>btn.onclick=()=>{const k=+btn.dataset.k;
+  if(k==q[2]){let pts=3;if(!miss){ok++;pts=10+Math.min(streak,5)*2;streak++}xp+=pts;upd();
+   document.querySelectorAll('.op').forEach(x=>x.disabled=true);btn.classList.add('right');if(!miss&&streak>=3)boom();
+   $('fb').innerHTML=`<div class="fbk g">✅ ${q[3]} <b>+${pts} XP</b></div><button class="go" id="nx">${last?'Continue →':'Next →'}</button>`;
+   $('nx').onclick=()=>{if(!last){qi++;ask()}else fin()}}
+  else{miss++;streak=0;upd();btn.disabled=true;btn.classList.add('bad');$('fb').innerHTML='<div class="fbk r">❌ Not quite! Check the clue words and try another answer.</div>'}})}
+function fin(){const t=Q.length,s=ok==t?3:ok>=t-2?2:1;stars[cur]=Math.max(stars[cur]||0,s);cur==6?result(true):create()}
+function create(){const w=W[cur];
+ put(`<div class="card" style="--a:${w.c[0]}"><h2>✍️ Your Turn: Create One!</h2><p>${w.p}</p><textarea id="ta" rows="3" placeholder="Type here..."></textarea><div id="fb"></div><button class="go" id="sub">Submit (+50 XP)</button><button class="back" id="skip">Skip</button></div>`);
+ $('skip').onclick=()=>result();
+ $('sub').onclick=()=>{const t=$('ta').value;
+  if(w.v(t)){xp+=50;upd();boom();$('sub').remove();$('skip').remove();$('fb').innerHTML=`<div class="fbk g">🌟 Awesome! +50 XP<br>Example: <i>${w.a}</i></div><button class="go" onclick="result()">Finish World →</button>`}
+  else $('fb').innerHTML=`<div class="fbk r">${w.h}</div>`}}
+function result(bossDone){boom();const s=stars[cur],all=stars.filter(Boolean).length==7;
+ put(`<div class="card"><div class="big">${bossDone?'🏆':'🎉'}</div><h2>${bossDone?'BOSS DEFEATED!':'World Complete!'}</h2><p style="font-size:40px;text-align:center;margin:0">${'⭐'.repeat(s)}</p><p>You have <b>${xp} XP</b>.${all?' You beat the whole game, poet! 🎤':' Next world unlocked!'}</p><button class="go" onclick="map()">Back to Map →</button></div>`)}
+map();
+</script></body></html>
